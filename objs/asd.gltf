@@ -1,0 +1,53 @@
+{
+  "asset": { "generator": "STP2GLTF", "version": "2.0" },
+  "scene": 0,
+  "scenes": [{ "nodes": [0] }],
+  "nodes": [{ "children": [1] }, { "mesh": 0 }],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "mode": 4,
+          "material": 0,
+          "indices": 0,
+          "attributes": { "POSITION": 1 }
+        }
+      ],
+      "name": "Mesh"
+    }
+  ],
+  "accessors": [
+    {
+      "bufferView": 0,
+      "byteOffset": 0,
+      "componentType": 5123,
+      "count": 29748,
+      "type": "SCALAR",
+      "max": [9526],
+      "min": [0]
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 0,
+      "componentType": 5126,
+      "count": 9527,
+      "type": "VEC3",
+      "max": [82.179382, 82.088005, 70.000008],
+      "min": [-82.444954, -82.449898, -0.00001]
+    }
+  ],
+  "materials": [
+    {
+      "name": "Mt0",
+      "pbrMetallicRoughness": {
+        "metallicFactor": 0.0,
+        "baseColorFactor": [0.5, 0.5, 0.5, 1.0]
+      }
+    }
+  ],
+  "bufferViews": [
+    { "buffer": 0, "byteOffset": 0, "byteLength": 59496 },
+    { "buffer": 0, "byteOffset": 59496, "byteLength": 114324, "byteStride": 12 }
+  ],
+  "buffers": [{ "byteLength": 173820, "uri": "asdd.bin" }]
+}
