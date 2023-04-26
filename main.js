@@ -4,9 +4,6 @@ import {
     GLTFLoader
 } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import {
-    RGBELoader
-} from 'three/examples/jsm/loaders/RGBELoader.js';
-import {
     KTX2Loader
 } from 'three/examples/jsm/loaders/KTX2Loader.js';
 import {
@@ -76,7 +73,7 @@ function init() {
     var orbitControls = new OrbitControls(camera, renderer.domElement);
 
 
-    loader.load('./objs/test_23.gltf', function (gltf) { //./objs/test_7.gltf
+    loader.load('./objs/test_6.gltf', function (gltf) { //./objs/test_7.gltf
 
         const object = gltf.scene;
 
@@ -99,6 +96,10 @@ function init() {
         orbitControls.panSpeed = 1.25;
         orbitControls.screenSpacePanning = true;
 
+
+        console.log(object.position);
+
+
         // Position the camera accordingly.
         object.position.x = -modelCenter.x;
         object.position.y = -modelCenter.y;
@@ -112,6 +113,8 @@ function init() {
         camera.updateProjectionMatrix();
         camera.lookAt(modelCenter);
 
+
+        console.log(object.position);
         console.log(modelCenter);
         console.log(modelSize);
         console.log(camera.position);
