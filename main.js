@@ -27,20 +27,13 @@ function init() {
 
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1e-5, 1e10);
 
-    // Z is up for objects intended to be 3D printed.
-
-    // camera.up.set(0, 0, 1);
-    // camera.position.set(0, -9, 6);
-
-    // camera.add(new THREE.PointLight(0xffffff, 0.8));
-
     scene.add(camera);
 
 
     const light = new THREE.HemisphereLight(0xffffff, 0x080808, 1.5);
     light.position.set(-1.25, 1, 1.25);
     scene.add(light);
-    scene.add(new THREE.AxesHelper(20));
+    // scene.add(new THREE.AxesHelper(20));
 
 
     //https://threejs.org/docs/#api/en/renderers/WebGLRenderer
@@ -51,19 +44,13 @@ function init() {
     renderer.setClearColor(0x222222);
     renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(window.innerWidth / 2, window.innerHeight / 2);
-    // renderer.outputEncoding = THREE.sRGBEncoding;
 
     document.body.appendChild(renderer.domElement);
 
-    /* const loader = new AMFLoader();
-        loader.load('rook.amf', function (amfobject) {
-        scene.add(amfobject);
-        render();
-
-     });*/
     //https://threejs.org/docs/#examples/en/loaders/DRACOLoader
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath('./node_modules/three/examples/jsm/libs/draco/gltf/');
+
     //https://threejs.org/docs/#examples/en/loaders/GLTFLoader
     const loader = new GLTFLoader();
     loader.setDRACOLoader(dracoLoader);
@@ -73,7 +60,7 @@ function init() {
     var orbitControls = new OrbitControls(camera, renderer.domElement);
 
 
-    loader.load('./objs/test_6.gltf', function (gltf) { //./objs/test_7.gltf
+    loader.load('./objs/test_6.gltf', function (gltf) { //./objs/test_6.gltf
 
         const object = gltf.scene;
 
@@ -89,7 +76,7 @@ function init() {
 
         // Set up mouse orbit controls.
         orbitControls.reset();
-        orbitControls.maxDistance = modelSize * 50;
+        orbitControls.maxDistance = modelSize * 500;
         orbitControls.enableDamping = true;
         orbitControls.dampingFactor = 0.07;
         orbitControls.rotateSpeed = 1.25;
@@ -112,13 +99,16 @@ function init() {
         camera.far = modelSize * 100;
         camera.updateProjectionMatrix();
         camera.lookAt(modelCenter);
-
-
-        console.log(object.position);
-        console.log(modelCenter);
-        console.log(modelSize);
-        console.log(camera.position);
-
+        /*
+                console.log('obj pos');
+                console.log(object.position);
+                console.log('model center');
+                console.log(modelCenter);
+                console.log('model size');
+                console.log(modelSize);
+                console.log('camera pos');
+                console.log(camera.position);
+        */
         scene.add(object);
 
         render();
@@ -130,9 +120,7 @@ function init() {
     });
 
 
-    // const controls = new OrbitControls(camera, renderer.domElement);
     orbitControls.addEventListener('change', render);
-    // orbitControls.target.set(0, 0, 2);
     orbitControls.update();
 
     window.addEventListener('resize', onWindowResize);
@@ -151,7 +139,6 @@ function onWindowResize() {
 }
 
 function render() {
-    // orbitControls.update();
     renderer.render(scene, camera);
 
 }
