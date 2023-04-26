@@ -21,7 +21,7 @@ function init() {
 
     scene = new THREE.Scene();
 
-    scene.background = new THREE.Color(0x999999);
+    scene.background = new THREE.Color(0x073763);
 
     scene.add(new THREE.AmbientLight(0x999999));
 
@@ -60,7 +60,7 @@ function init() {
     var orbitControls = new OrbitControls(camera, renderer.domElement);
 
 
-    loader.load('./objs/test_6.gltf', function (gltf) { //./objs/test_6.gltf
+    loader.load('./objs/test_38.gltf', function (gltf) { //./objs/test_6.gltf
 
         const object = gltf.scene;
 
@@ -118,8 +118,6 @@ function init() {
         console.error(e);
 
     });
-
-
     orbitControls.addEventListener('change', render);
     orbitControls.update();
 
